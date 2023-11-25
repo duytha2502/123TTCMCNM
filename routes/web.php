@@ -83,3 +83,8 @@ Route::get('dang-xuat','PageController@postLogout')->name('logout');
 Route::get('search','PageController@getSearch')->name('search');
 Route::get('donhang','PageController@getDonHang')->name('donhang');
 
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/ logout','_Admincontroller@logout');
+    
