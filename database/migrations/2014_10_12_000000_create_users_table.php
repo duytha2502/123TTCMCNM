@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
+use Illuminate\Support\Facades\Hash;
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,6 +22,11 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::Make('123456')
+        ]);
     }
 
     /**
@@ -33,4 +38,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
-};
+}
